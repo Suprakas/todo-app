@@ -1,14 +1,11 @@
-import { useNavigate } from 'react-router-dom';
 import { PrimaryButton } from '../components/ui';
 import { markOnboarded } from '../lib/onboarding';
 
 /** Onboarding screen (Figma node 20:1511) */
 export default function OnboardingPage() {
-  const navigate = useNavigate();
-
   const start = () => {
     markOnboarded();
-    navigate('/', { replace: true });
+    window.location.replace('/');
   };
 
   return (
