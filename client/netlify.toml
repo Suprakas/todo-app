@@ -1,0 +1,13 @@
+# Netlify: set "Base directory" to `client` (or deploy from this folder).
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Client-side routing: serve index.html for every path
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

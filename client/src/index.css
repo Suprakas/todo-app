@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens taken from the Figma file ("To-Do List Mobile app").
+ * Every colour / font in the UI comes from here.
+ */
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  /* brand */
+  --color-brand: #4566ec; /* primary blue: CTA, FAB, selected day, checkbox */
+  --color-brand-dark: #253c98; /* weekly progress fill */
+  --color-brand-track: #dadaff; /* weekly progress track */
+
+  /* surfaces */
+  --color-canvas: #fdfdff; /* screen background */
+  --color-surface: #ffffff;
+  --color-line: #eaeaea; /* input borders, dividers */
+  --color-line-strong: #e6e6e6; /* search box border */
+
+  /* text */
+  --color-ink: #090e23;
+  --color-label: #717171; /* field labels, body copy */
+  --color-subtle: #6e7180; /* "This Week" */
+  --color-faint: #c0c0c0; /* unselected days */
+  --color-icon: #a3a3a3; /* trash / edit icons */
+
+  /* summary cards */
+  --color-complete-bg: #eff2ff;
+  --color-complete-icon: #99adff;
+  --color-pending-bg: #ffe6e7;
+  --color-pending-icon: #ffb1b5;
+  --color-pending-ink: #e5484d;
+
+  /* priorities (not in Figma — derived from the palette above) */
+  --color-high: #e5484d;
+  --color-medium: #e8a317;
+  --color-low: #22a06b;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+  input,
+  textarea,
+  button {
+    font: inherit;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes sheet {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
