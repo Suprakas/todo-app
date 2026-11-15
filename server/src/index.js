@@ -1,3 +1,4 @@
+import dns from 'node:dns';
 import mongoose from 'mongoose';
 import { config } from './config.js';
 import { createApp } from './app.js';
@@ -6,6 +7,11 @@ import { createMemoryTaskRepository } from './repositories/memoryTaskRepository.
 
 async function start() {
   let repo;
+
+  if (config.dnsServers.length) {
+    dns.setServers(config.dnsServers);
+    console.log('• Using DNS servers:', config.dnsServers.join(', '));
+  }
 
   if (config.mongoUri) {
     await mongoose.connect(config.mongoUri);
