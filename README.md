@@ -2,7 +2,7 @@
 
 A mobile-first to-do app that groups your tasks into **Monday → Sunday weeks** and shows open vs. completed counts for each one. The UI follows the provided Figma design. The data comes from the app's own REST API (Express + MongoDB).
 
-**Live demo:** https://your-site.netlify.app &nbsp;·&nbsp; **API:** https://your-api.onrender.com/api/health
+**Live demo:** https://todo-weekly-planner.netlify.app &nbsp;·&nbsp; **API:** https://todo-api-tjw3.onrender.com/api/health
 
 > The API runs on Render's free tier, which sleeps when idle. The first request after a break can take 30–50 seconds; the app shows a "waking up the server" message while it starts.
 
